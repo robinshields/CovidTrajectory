@@ -1,0 +1,67 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Covid-19 Mortality Trajectories</title>
+  <meta name="description" content="Covid-19 Mortality Trajectoris">
+  <meta name="author" content="Robin Shields">
+
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+  <div id="controls">
+    <div>
+      <label>Data:</label>
+      <select id="data">
+        <option value="Daily" selected>Daily Deaths</option>
+        <option value="Cumulative">Cumulative Deaths</option>
+        <option value="Polynomial3">Third Order Polynomial</option>
+        <option value="Polynomial2">Second Order Polynomial</option>
+        <option value="Polynomial1">Linear Trajectory</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Show</label>
+      <input type="number" min="1" max="100" value="50" id="days">
+      <span>days</span>
+    </div>
+
+    <div>
+      <label>Exclude countries with less than</label>
+      <input type="number" min="1" max="100" value="20" id="exclude">
+      <span>days of data</span>
+    </div>
+
+    <div>
+      <input type="checkbox" id="normalize">
+      <label>Population Normalized Values</label>
+    </div>
+
+    <div>
+      <button id="select-countries">Select Individual Countries</button>
+    </div>
+    <div id="countries" style="display:none;">
+        <p class="select-all">
+          <input type="checkbox" id="select-all">
+          <label for="select-all">Toggle All</label>
+        </p>
+    </div>
+  </div>
+
+
+
+  <div id="chart-container">
+    <canvas id="chart"></canvas>
+  </div>
+
+  <script src="jquery.min.js"></script>
+  <script src="Chart.min.js"></script>
+  <script src="covid.data.js"></script>
+  <script src="covid.js"></script>
+</body>
+</html>
